@@ -1,0 +1,76 @@
+<form method="post" action="/reader/post">
+  <h1>Add Reader</h1>
+  <label>Name</label>
+  <br />
+  <input type="text" name="name" />
+  <br />
+  <label>Age</label>
+  <br />
+  <input type="number" name="age" />
+  <br />
+  <br />
+  <input type="submit" value="POST" />
+</form>
+<br />
+<br />
+
+<form method="post" action="/book/post">
+  <h1>Add Book</h1>
+  <label>Title</label>
+  <br />
+  <input type="text" name="title" />
+  <br />
+  <label>Author</label>
+  <br />
+  <input type="text" name="author" />
+  <br />
+  <br />
+  <input type="submit" value="Create" />
+</form>
+<br />
+<br />
+
+<form method="post" action="/book/reader/post">
+  <h1>Add Reader to a Book</h1>
+  <label>Title</label>
+  <br />
+  <!-- <input type="text" name="title" /> -->
+  <select name="title" id="">
+    <option value="select">--Select--</option>
+    <% books.map((book)=>{ %>
+    <option><%= book.title %></option>
+    <% }) %>
+  </select>
+  <br />
+  <br />
+  <label>Reader</label>
+  <br />
+  <!-- <input type="text" name="reader" /> -->
+  <select name="reader" id="">
+    <option value="select">--Select--</option>
+    <% readers.map((reader)=>{ %>
+    <option><%= reader.name %></option>
+    <% }) %>
+  </select>
+  <br />
+  <br />
+  <label>Date</label>
+  <br />
+  <input type="date" name="date" />
+  <br />
+  <br />
+  <input type="submit" value="Save" />
+</form>
+
+<h1>Books!</h1>
+<ul>
+  <% books.map((book)=>{ %>
+  <li><%= book.title %></li>
+  <% }) %>
+</ul>
+<h1>Readers!</h1>
+<ul>
+  <% readers.map((reader)=>{ %>
+  <li><%= reader.name %></li>
+  <% }) %>
+</ul>
